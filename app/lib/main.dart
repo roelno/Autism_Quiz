@@ -7,7 +7,12 @@ void main() {
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Hello'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Quiz Now'),
+        ),
+        body: Text('This is a brief autism quiz.'),
+      ),
     );
   }
 }
