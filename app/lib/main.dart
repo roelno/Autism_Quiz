@@ -5,6 +5,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  void answerQuestion() {
+    print('Answer chosen!');
+  }
+
   Widget build(BuildContext context) {
     var questions = [
       'I like to do things the same way.',
@@ -17,13 +21,22 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text('The question!'),
+            Text(questions.elementAt(0)),
             RaisedButton(
               child: Text('Never'),
-              onPressed: null,
+              onPressed: answerQuestion,
             ),
-            RaisedButton(child: Text('Some of the time'), onPressed: null),
-            RaisedButton(child: Text('Most of the time'), onPressed: null),
+            RaisedButton(
+              child: Text('Some of the time'),
+              onPressed: () => print('Answer 2 is chosen!'),
+            ),
+            RaisedButton(
+              child: Text('Most of the time'),
+              onPressed: () {
+                //...
+                print('Answer 3 is chosen!');
+              },
+            ),
           ],
         ),
       ),
