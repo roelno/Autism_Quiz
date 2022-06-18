@@ -5,8 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print('Answer chosen!');
+    questionIndex = questionIndex + 1;
+    print(questionIndex);
   }
 
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text(questions.elementAt(0)),
+            Text(questions[questionIndex]),
             RaisedButton(
               child: Text('Never'),
               onPressed: answerQuestion,
