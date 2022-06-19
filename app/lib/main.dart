@@ -16,13 +16,16 @@ class MyAppState extends State<MyApp> {
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+
     print('Answer chosen!');
   }
 
   Widget build(BuildContext context) {
     var questions = [
-      'I like to do things the same ways.',
+      'I like to do things the same way.',
       'I would rather hang out alone rather than go to a party with friends.'
     ];
     return MaterialApp(
