@@ -14,46 +14,59 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final questions = const [
+    //or use static const
+    {
+      'questionText': 'I like to do things the same way.',
+      'answers': ['Never', 'Some of the time', 'Most of the time']
+    },
+    {
+      'questionText':
+          'I would rather hang out alone rather than go to a party with friends.',
+      'answers': ['Never', 'Some of the time', 'Most of the time'],
+    },
+    {
+      'questionText': 'I tend to notice small details that others don’t.',
+      'answers': ['Never', 'Some of the time', 'Most of the time']
+    }
+  ];
   var _questionIndex = 0;
 
   void _answerQuestion() {
+    //var aBool = true;
+    //aBool = false;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-
-    print('Answer chosen!');
+    print(_questionIndex);
+    if (_questionIndex < questions.length) {
+      print('We have more questions!');
+    } else {
+      print('No more questions!');
+    }
   }
 
+  @override
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'I like to do things the same way.',
-        'answers': ['Never', 'Some of the time', 'Most of the time']
-      },
-      {
-        'questionText':
-            'I would rather hang out alone rather than go to a party with friends.',
-        'answers': ['Never', 'Some of the time', 'Most of the time'],
-      },
-      {
-        'questionText': 'I tend to notice small details that others don’t.',
-        'answers': ['Never', 'Some of the time', 'Most of the time']
-      }
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Quiz Now'),
         ),
-        body: Column(
-          children: [
-            Question(questions[_questionIndex]['questionText'] as String),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(questions[_questionIndex]['questionText'] as String),
+                  ...(questions[_questionIndex]['answers'] as List<String>)
+
+                      ///
+                      .map((answer) {
+                    return Answer(_answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : Center(child: Text('You did it!')),
       ),
     );
   }
