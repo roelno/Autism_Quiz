@@ -26,8 +26,19 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     var questions = [
-      'I like to do things the same way.',
-      'I would rather hang out alone rather than go to a party with friends.'
+      {
+        'questionText': 'I like to do things the same way.',
+        'answers': ['Never', 'Some of the time', 'Most of the time']
+      },
+      {
+        'questionText':
+            'I would rather hang out alone rather than go to a party with friends.',
+        'answers': ['Never', 'Some of the time', 'Most of the time'],
+      },
+      {
+        'questionText': 'I tend to notice small details that others don’t.',
+        'answers': ['Never', 'Some of the time', 'Most of the time']
+      }
     ];
     return MaterialApp(
       home: Scaffold(
@@ -36,10 +47,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            Question(questions[_questionIndex]['questionText'] as String),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
