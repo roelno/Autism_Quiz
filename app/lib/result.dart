@@ -11,10 +11,10 @@ class Result extends StatelessWidget {
     String resultText;
     if (resultScore <= 26) {
       resultText =
-          'Scoring in this range means it may be a good idea to monitor your symptoms and keep track of the severity of these behaviors and when they are present. ';
+          '无症状或轻微症状。似乎你的行为并没有对你的生活、学习和人际关系构成困扰，或者只是构成了轻微的困扰。如果你担心或想要更多信息，请考虑安排与合格的医疗保健或心理健康专业人员进行评估，以进行进一步评估和潜在的治疗。';
     } else {
       resultText =
-          'Based on your responses, you may benefit from seeing a mental health professional for an evaluation, particularly if any of the items on the list impact your ability to be successful in your work or personal life.';
+          '根据你的测试结果，如果有一些因素导致你在生活、学习和人际关系上感到困扰，推荐多在一些人际互动中感受自己的感受、感受别人的感受，逐渐培养起对自己和他人的感知，如有需要可以向咨询师请求帮助。';
     }
     return resultText;
   }
