@@ -45,9 +45,9 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': '4/20 当我阅读故事时，我很难想象角色会是什么样子，也很难弄清楚角色的意图。',
       'answers': [
-        {'text': 'Never', 'score': 0},
-        {'text': 'Some of the time', 'score': 1},
-        {'text': 'Most of the time', 'score': 2},
+        {'text': '从不', 'score': 0},
+        {'text': '有时候', 'score': 1},
+        {'text': '大多数时候', 'score': 2},
       ]
     },
     {
@@ -117,9 +117,9 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': '13/20 当有人和我说话时，我发现很容易“字里行间阅读”（了解他们的真实感受或意图）。',
       'answers': [
-        {'text': 'Never', 'score': 0},
-        {'text': 'Some of the time', 'score': 1},
-        {'text': 'Most of the time', 'score': 2},
+        {'text': '从不', 'score': 0},
+        {'text': '有时候', 'score': 1},
+        {'text': '大多数时候', 'score': 2},
       ]
     },
     {
@@ -204,7 +204,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Quiz Now'),
+            title: Text('小测试'),
           ),
           body: _questionIndex < _questions.length
               ? Quiz(
